@@ -1,0 +1,106 @@
+# Arduino Potentiometer-Controlled Buzzer
+
+## Overview
+This project uses an Arduino Uno, a potentiometer, and a buzzer to demonstrate analog input and sound generation.
+
+Turning the potentiometer changes the analog reading received by the Arduino. The reading is mapped to a frequency, which controls the buzzer's pitch.
+
+## Components
+- Arduino Uno
+- Potentiometer
+- Buzzer
+- 1 kΩ resistor
+- Breadboard and jumper wires
+
+## How It Works
+1. The Arduino reads the potentiometer through analog pin `A0`.
+2. `analogRead()` returns a value between `0` and `1023`.
+3. `map()` converts the reading into a frequency between `200 Hz` and `1000 Hz`.
+4. `tone()` generates a sound on digital pin `8`.
+5. Turning the potentiometer changes the pitch of the buzzer.
+
+## Arduino Functions Used
+- `analogRead()` — reads the potentiometer's analog value.
+- `map()` — converts the analog reading into a frequency range.
+- `tone()` — generates a sound at a specified frequency.
+- `Serial.begin()` — initializes serial communication.
+- `Serial.println()` — displays values in the Serial Monitor.
+- `delay()` — pauses execution for a specified time.
+
+## Circuit Connections
+
+| Component | Arduino Connection |
+|---|---|
+| Potentiometer VCC | 5V |
+| Potentiometer GND | GND |
+| Potentiometer SIG | A0 |
+| Buzzer positive terminal | Digital pin 8 through a 1 kΩ resistor |
+| Buzzer negative terminal | GND |
+
+## Software and Tools
+- PlatformIO
+- Arduino framework
+- Wokwi Simulator
+- C++
+
+## What I Learned
+- Reading analog signals using a potentiometer.
+- Mapping sensor readings to useful output values.
+- Generating different sound frequencies with `tone()`.
+- Using serial communication to monitor readings.
+- Connecting input devices to output devices in an embedded system.
+
+## Future Improvements
+- Add a threshold that stops the buzzer when the potentiometer reading is low.
+- Experiment with `noTone()` to stop sound generation.
+- Explore other sensors and outputs.
+
+## Project Goal
+This project is part of my journey into IoT and Embedded Systems, learning by building practical projects with Arduino.
+
+
+This directory is intended for project specific (private) libraries.
+PlatformIO will compile them to static libraries and link into the executable file.
+
+The source code of each library should be placed in a separate directory
+("lib/your_library_name/[Code]").
+
+For example, see the structure of the following example libraries `Foo` and `Bar`:
+
+|--lib
+|  |
+|  |--Bar
+|  |  |--docs
+|  |  |--examples
+|  |  |--src
+|  |     |- Bar.c
+|  |     |- Bar.h
+|  |  |- library.json (optional. for custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
+|  |
+|  |--Foo
+|  |  |- Foo.c
+|  |  |- Foo.h
+|  |
+|  |- README --> THIS FILE
+|
+|- platformio.ini
+|--src
+   |- main.c
+
+Example contents of `src/main.c` using Foo and Bar:
+```
+#include <Foo.h>
+#include <Bar.h>
+
+int main (void)
+{
+  ...
+}
+
+```
+
+The PlatformIO Library Dependency Finder will find automatically dependent
+libraries by scanning project source files.
+
+More information about PlatformIO Library Dependency Finder
+- https://docs.platformio.org/page/librarymanager/ldf.html
