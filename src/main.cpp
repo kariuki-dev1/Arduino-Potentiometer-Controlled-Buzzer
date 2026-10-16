@@ -9,6 +9,7 @@ unsigned long duration = 0;
 void setup() {
   // nothing to do here
   Serial.begin(9600);
+  pinMode(pulsepin, INPUT);
 }
  
 void loop() {
